@@ -13,16 +13,25 @@ DEVELOPING STEPS
 
 */
 
-"use strict";
+'use strict';
 
-let myCar = {
-  manufacturer: "",
-  year: "",
-  model: "",
-  latest_km_reading: "",
-  last_month_km_reading: "",
+const calcFuelUse = function (lastMil, recentMil, fuelLiters) {
+  const distance = recentMil - lastMil;
+  const usage = distance / fuelLiters;
+
+  return usage;
 };
 
-const retrieveCarInfo = function () {
-  myCar.manufacturer = prompt("Informe o ano do seu veículo: ");
-};
+const btnCalc = document.getElementById('calculateUsage');
+const fuel = document.getElementById('fuel');
+const lastMil = document.querySelector('#lastMileage');
+const recMil = document.querySelector('#actualMileage');
+
+btnCalc.addEventListener('click', function () {
+  const usage = calcFuelUse(fuel, lastMil, recMil);
+
+  console.log(usage);
+  console.log(fuel);
+  console.log(lastMil);
+  console.log(recMil);
+});
