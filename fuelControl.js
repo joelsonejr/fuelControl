@@ -15,7 +15,11 @@ DEVELOPING STEPS
 
 'use strict';
 
-const calcFuelUse = function (lastMil, recentMil, fuelLiters) {
+let fuel;
+let lastMil;
+let recMil;
+
+const calcFuelUse = function (fuelLiters, recentMil, lastMil) {
   const distance = recentMil - lastMil;
   const usage = distance / fuelLiters;
 
@@ -23,15 +27,25 @@ const calcFuelUse = function (lastMil, recentMil, fuelLiters) {
 };
 
 const btnCalc = document.getElementById('calculateUsage');
-const fuel = document.getElementById('fuel');
-const lastMil = document.querySelector('#lastMileage');
-const recMil = document.querySelector('#actualMileage');
+const inFuel = document.getElementById('fuel');
+const inLastMil = document.querySelector('#lastMileage');
+const inRecMil = document.querySelector('#actualMileage');
+const avgUse = document.getElementById('averageUse');
+
+inFuel.addEventListener('input', function (e) {
+  fuel = e.target.value;
+});
+
+inLastMil.addEventListener('input', function (e) {
+  lastMil = e.target.value;
+});
+
+inRecMil.addEventListener('input', function (e) {
+  recMil = e.target.value;
+});
 
 btnCalc.addEventListener('click', function () {
-  const usage = calcFuelUse(fuel, lastMil, recMil);
+  const usage = calcFuelUse(fuel, recMil, lastMil);
 
-  console.log(usage);
-  console.log(fuel);
-  console.log(lastMil);
-  console.log(recMil);
+  avgUse.value = Math.floor(usage);
 });
