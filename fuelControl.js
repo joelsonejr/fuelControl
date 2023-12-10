@@ -13,16 +13,49 @@ DEVELOPING STEPS
 
 */
 
-"use strict";
+'use strict';
 
-let myCar = {
-  manufacturer: "",
-  year: "",
-  model: "",
-  latest_km_reading: "",
-  last_month_km_reading: "",
+let fuel;
+let lastMil;
+let recMil;
+
+const calcFuelUse = function (fuelLiters, recentMil, lastMil) {
+  const distance = recentMil - lastMil;
+  const usage = distance / fuelLiters;
+
+  return usage;
 };
 
-const retrieveCarInfo = function () {
-  myCar.manufacturer = prompt("Informe o ano do seu veículo: ");
+const resetCalculation = function () {
+  inFuel.value = '';
+  inLastMil.value = '';
+  inRecMil.value = '';
+  avgUse.value = '';
 };
+
+const btnCalc = document.getElementById('calculateUsage');
+const btnReset = document.getElementById('resetCalc');
+const inFuel = document.getElementById('fuel');
+const inLastMil = document.querySelector('#lastMileage');
+const inRecMil = document.querySelector('#actualMileage');
+const avgUse = document.getElementById('averageUse');
+
+inFuel.addEventListener('input', function (e) {
+  fuel = e.target.value;
+});
+
+inLastMil.addEventListener('input', function (e) {
+  lastMil = e.target.value;
+});
+
+inRecMil.addEventListener('input', function (e) {
+  recMil = e.target.value;
+});
+
+btnCalc.addEventListener('click', function () {
+  const usage = calcFuelUse(fuel, recMil, lastMil);
+
+  avgUse.value = Math.floor(usage);
+});
+
+btnReset.addEventListener('click', resetCalculation);

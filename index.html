@@ -11,19 +11,22 @@
       <input type="radio" id="fuelAlc" />
       <label for="fuelGas">Gasolina</label>
       <input type="radio" id="fuelGas" />
-      <label for="fuelQuantity">Litros abastecidos</label>
-      <input type="number" id="fuelQuantity" />
+      <label for="fuel">Litros abastecidos</label>
+      <input type="number" id="fuel" />
       <label for="last_mileage">Última Kilometragem</label>
-      <input type="number" id="last_mileage" />
+      <input type="number" id="lastMileage" />
       <label for="actual_mileage">Kilometragem Atual</label>
-      <input type="number" id="actual_mileage" />
+      <input type="number" id="actualMileage" />
     </form>
     <div>
       <p>O rendimento do seu carro foi de:</p>
       <button id="calculateUsage">Calcular</button>
       <input type="number" id="averageUse" />
       <label for="averageUse">Km/ litros</label>
+      <button id="resetCalc">Reset</button>
     </div>
-    <script type="text/javascript" scr="fuelControl.js"></script>
+    <script src="fuelControl.js"></script>
   </body>
 </html>
+
+<!-- TODO: criar demonstrativo informando quando km foram percorridos, o valor que foi pago por KM, quantos dias desde o último abastecimento.  -->
