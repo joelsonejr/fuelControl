@@ -26,7 +26,15 @@ const calcFuelUse = function (fuelLiters, recentMil, lastMil) {
   return usage;
 };
 
+const resetCalculation = function () {
+  inFuel.value = '';
+  inLastMil.value = '';
+  inRecMil.value = '';
+  avgUse.value = '';
+};
+
 const btnCalc = document.getElementById('calculateUsage');
+const btnReset = document.getElementById('resetCalc');
 const inFuel = document.getElementById('fuel');
 const inLastMil = document.querySelector('#lastMileage');
 const inRecMil = document.querySelector('#actualMileage');
@@ -49,3 +57,5 @@ btnCalc.addEventListener('click', function () {
 
   avgUse.value = Math.floor(usage);
 });
+
+btnReset.addEventListener('click', resetCalculation);
