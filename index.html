@@ -6,6 +6,24 @@
     <title>Controle de combustível</title>
   </head>
   <body>
+    <form action="">
+      <label for="fuelAlc">Alcool</label>
+      <input type="radio" id="fuelAlc" />
+      <label for="fuelGas">Gasolina</label>
+      <input type="radio" id="fuelGas" />
+      <label for="fuelQuantity">Litros abastecidos</label>
+      <input type="number" id="fuelQuantity" />
+      <label for="last_mileage">Última Kilometragem</label>
+      <input type="number" id="last_mileage" />
+      <label for="actual_mileage">Kilometragem Atual</label>
+      <input type="number" id="actual_mileage" />
+    </form>
+    <div>
+      <p>O rendimento do seu carro foi de:</p>
+      <button id="calculateUsage">Calcular</button>
+      <input type="number" id="averageUse" />
+      <label for="averageUse">Km/ litros</label>
+    </div>
     <script type="text/javascript" scr="fuelControl.js"></script>
   </body>
 </html>
